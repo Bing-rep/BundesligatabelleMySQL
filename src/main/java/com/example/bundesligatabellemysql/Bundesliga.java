@@ -22,7 +22,7 @@ public class Bundesliga {
         this.tore = tore;
         this.gegentore = gegentore;
         this.tordifferenz = tordifferenz;
-        this.punkte = this.punkte;
+        this.punkte = punkte;
     }
 
     public String getVerein() {

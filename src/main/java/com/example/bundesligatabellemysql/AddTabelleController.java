@@ -12,7 +12,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.LocalDate;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -65,12 +64,14 @@ public class AddTabelleController implements Initializable {
         connection = DbVerbindung.getConnect();
         String Verein = vereinFid.getText();
         String Spiele = spieleFid.getText();
+        String Siege = siegeFid.getText();
         String Niederlagen = spieleFid.getText();
-        String Unentschieden = toreFid.getText();
+        String Unentschieden = unentschiedenFid.getText();
+        String Tore = toreFid.getText();
         String Gegentore = gegentoreFid.getText();
         String Punkte = punkteFid.getText();
 
-        if (Verein.isEmpty() | Spiele.isEmpty()| Niederlagen.isEmpty()| Unentschieden.isEmpty()| Gegentore.isEmpty()| Punkte.isEmpty())
+        if (Verein.isEmpty() | Spiele.isEmpty()| Siege.isEmpty()| Niederlagen.isEmpty()| Unentschieden.isEmpty()| Tore.isEmpty()| Gegentore.isEmpty()| Punkte.isEmpty())
         {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(null);
@@ -119,10 +120,10 @@ public class AddTabelleController implements Initializable {
     private void getQuery() {
         if (aktualisieren == false) {
 
-            query = "INSERT INTO `tabelle`(`Verein`, `Spiele`, `Siege`, `Niederlagen`, `Unentschieden`, `Tore`, `Gegentore`, `Tordifferenz`, `Punkte`) VALUES (?,?,?,?,?,?,?,?,?)";
+            query = "INSERT INTO tabelle (Verein, Spiele, Siege, Niederlagen, Unentschieden, Tore, Gegentore, Tordifferenz, Punkte) VALUES (?,?,?,?,?,?,?,?,?)";
 
         }else{
-            query = "UPDATE `Verein` SET"
+            query = "UPDATE `tabelle` SET "
                     + "`Verein`=?,"
                     + "`Spiele`=?,"
                     + "`Siege`=?,"
@@ -142,9 +143,9 @@ public class AddTabelleController implements Initializable {
         siegeFid.setText(String.valueOf(siege));
         niederlagenFid.setText(String.valueOf(niederlagen));
         unentschiedenFid.setText(String.valueOf(unentschieden));
-        toreFid.setText(String.valueOf(toreFid));
-        gegentoreFid.setText(String.valueOf(gegentoreFid));
-        punkteFid.setText(String.valueOf(punkteFid));
+        toreFid.setText(String.valueOf(tore));
+        gegentoreFid.setText(String.valueOf(gegentore));
+        punkteFid.setText(String.valueOf(punkte));
 
     }
 
