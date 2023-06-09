@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -19,8 +20,9 @@ public class TabellenBedienung extends Application {
         try {
             Parent parent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("com/example/bundesligatabellemysql/Bundesligatabelle.fxml")));
             Scene scene = new Scene(parent);
+            scene.setFill(Color.TRANSPARENT);
             primaryStage.setScene(scene);
-            primaryStage.initStyle(StageStyle.UTILITY);
+            primaryStage.initStyle(StageStyle.TRANSPARENT);
             primaryStage.show();
         } catch (IOException exception) {
             Logger.getLogger(TabellenBedienung.class.getName()).log(Level.SEVERE, null, exception);

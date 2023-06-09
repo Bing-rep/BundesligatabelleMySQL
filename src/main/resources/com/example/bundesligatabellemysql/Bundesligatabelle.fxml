@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -12,16 +13,16 @@
    <children>
       <TableView fx:id="bundesligaTabelle" layoutX="32.0" layoutY="89.0" prefHeight="262.0" prefWidth="696.0">
         <columns>
-          <TableColumn fx:id="vereinSpalte" prefWidth="75.0" text="Verein" />
-          <TableColumn fx:id="spieleSpalte" prefWidth="75.0" text="Spiele" />
-            <TableColumn fx:id="siegeSpalte" prefWidth="75.0" text="Siege" />
-            <TableColumn fx:id="niederlagenSpalte" prefWidth="75.0" text="Niederlagen" />
-            <TableColumn fx:id="unentschiedenSpalte" prefWidth="75.0" text="Unentschieden" />
-            <TableColumn fx:id="gegentoreSpalte" prefWidth="75.0" text="Gegentore" />
-            <TableColumn fx:id="toreSpalte" prefWidth="50.0" text="Tore" />
-            <TableColumn fx:id="tordifferenzSpalte" prefWidth="67.0" text="Tordifferenz" />
-            <TableColumn fx:id="punkteSpalte" prefWidth="64.0" text="Punkte" />
-            <TableColumn fx:id="eingabeSpalte" prefWidth="64.0" text="Eingabe" />
+          <TableColumn fx:id="vereinSpalte" prefWidth="75.0" style="-fx-alignment: center;" text="Verein" />
+          <TableColumn fx:id="spieleSpalte" prefWidth="75.0" style="-fx-alignment: center;" text="Spiele" />
+            <TableColumn fx:id="siegeSpalte" prefWidth="75.0" style="-fx-alignment: center;" text="Siege" />
+            <TableColumn fx:id="niederlagenSpalte" prefWidth="75.0" style="-fx-alignment: center;" text="Niederlagen" />
+            <TableColumn fx:id="unentschiedenSpalte" prefWidth="75.0" style="-fx-alignment: center;" text="Unentschieden" />
+            <TableColumn fx:id="gegentoreSpalte" prefWidth="75.0" style="-fx-alignment: center;" text="Gegentore" />
+            <TableColumn fx:id="toreSpalte" prefWidth="50.0" style="-fx-alignment: center;" text="Tore" />
+            <TableColumn fx:id="tordifferenzSpalte" prefWidth="67.0" style="-fx-alignment: center;" text="Tordifferenz" />
+            <TableColumn fx:id="punkteSpalte" prefWidth="64.0" style="-fx-alignment: center;" text="Punkte" />
+            <TableColumn fx:id="eingabeSpalte" prefWidth="64.0" style="-fx-alignment: center;" text="Eingabe" />
         </columns>
       </TableView>
       <Pane layoutY="55.0" prefHeight="9.0" prefWidth="950.0" style="-fx-background-color: black;" />
@@ -30,6 +31,14 @@
             <Font name="System Bold Italic" size="30.0" />
          </font>
       </Text>
-      <HBox layoutX="760.0" layoutY="120.0" prefHeight="245.0" prefWidth="174.0" />
+      <!--<HBox layoutX="760.0" layoutY="120.0" prefHeight="245.0" prefWidth="174.0">
+          <children>
+            <FontAwesomeIcon fill="#000dff" glyphName="USER_PLUS" onMouseClicked="#getHinzufügenAnsicht" size="40" wrappingWidth="50.0" />
+            <FontAwesomeIcon fill="#00ff15" glyphName="REFRESH" onContextMenuRequested="#aktualisierTabelle" size="40" wrappingWidth="44.0" />
+            <FontAwesomeIcon glyphName="PRINT" onMouseClicked="#drucken" size="40" wrappingWidth="44.0" />
+         </children>
+      </HBox>
+      <FontAwesomeIcon fill="RED" glyphName="CLOSE" layoutX="912.0" layoutY="34.0" onMouseClicked="#beenden" size="40" />
+      -->
    </children>
 </AnchorPane>
