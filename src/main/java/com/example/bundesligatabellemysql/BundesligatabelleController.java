@@ -89,7 +89,7 @@ public class BundesligatabelleController implements Initializable {
             while (resultSet.next()){
                 BundesligaListe.add(new Bundesliga(
                         resultSet.getString("Verein"),
-                        resultSet.getInt("Spiele"),
+                        resultSet.getString("Spiele"),
                         resultSet.getInt("Siege"),
                         resultSet.getInt("Niederlagen"),
                         resultSet.getInt("Unentschieden"),

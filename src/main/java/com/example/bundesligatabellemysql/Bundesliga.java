@@ -3,7 +3,7 @@ package com.example.bundesligatabellemysql;
 public class Bundesliga {
 
     String verein;
-    int spiele;
+    String spiele;
     int siege;
     int niederlagen;
     int unentschieden;
@@ -13,7 +13,7 @@ public class Bundesliga {
     int punkte;
 
 
-    public Bundesliga(String verein, int spiele, int siege, int niederlagen, int unentschieden, int tore, int gegentore, int tordifferenz, int punkte) {
+    public Bundesliga(String verein, String spiele, int siege, int niederlagen, int unentschieden, int tore, int gegentore, int tordifferenz, int punkte) {
         this.verein = verein;
         this.spiele = spiele;
         this.siege = siege;
@@ -33,11 +33,11 @@ public class Bundesliga {
         this.verein = verein;
     }
 
-    public int getSpiele() {
+    public String getSpiele() {
         return spiele;
     }
 
-    public void setSpiele(int spiele) {
+    public void setSpiele(String spiele) {
         this.spiele = spiele;
     }
 

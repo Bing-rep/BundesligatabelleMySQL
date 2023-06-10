@@ -10,7 +10,7 @@ public class DbVerbindung {
     private static String HOST = "localhost";
     private static int PORT = 3306;
     private static String DB_NAME = "bundesligatabelle";
-    private static String Benutzername = "root";
+    private static String Benutzername = "javaFX";
     private static String PASSWORT = "";
     private static Connection verbindung ;
 

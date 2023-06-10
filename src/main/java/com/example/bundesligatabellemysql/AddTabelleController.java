@@ -104,12 +104,12 @@ public class AddTabelleController implements Initializable {
             preparedStatement = connection.prepareStatement((query));
             preparedStatement.setString(1, vereinFid.getText());
             preparedStatement.setString(1, spieleFid.getText());
-            preparedStatement.setString(1, siegeFid.getText());
-            preparedStatement.setString(1, niederlagenFid.getText());
-            preparedStatement.setString(1, unentschiedenFid.getText());
-            preparedStatement.setString(1, toreFid.getText());
-            preparedStatement.setString(1, gegentoreFid.getText());
-            preparedStatement.setString(1, punkteFid.getText());
+            preparedStatement.setInt(3, Integer.parseInt(siegeFid.getText()));
+            preparedStatement.setInt(4, Integer.parseInt(niederlagenFid.getText()));
+            preparedStatement.setInt(5, Integer.parseInt(unentschiedenFid.getText()));
+            preparedStatement.setInt(6, Integer.parseInt(toreFid.getText()));
+            preparedStatement.setInt(7, Integer.parseInt(gegentoreFid.getText()));
+            preparedStatement.setInt(8, Integer.parseInt(punkteFid.getText()));
 
         } catch (SQLException exception) {
             Logger.getLogger(AddTabelleController.class.getName()).log(Level.SEVERE, null, exception);
@@ -120,10 +120,10 @@ public class AddTabelleController implements Initializable {
     private void getQuery() {
         if (aktualisieren == false) {
 
-            query = "INSERT INTO tabelle (Verein, Spiele, Siege, Niederlagen, Unentschieden, Tore, Gegentore, Tordifferenz, Punkte) VALUES (?,?,?,?,?,?,?,?,?)";
+            query = "INSERT INTO tabelle (Verein, Spiele, Siege, Niederlagen, Unentschieden, Tore, Gegentore, Punkte) VALUES (?,?,?,?,?,?,?,?)";
 
         }else{
-            query = "UPDATE `tabelle` SET "
+            query = "UPDATE tabelle SET "
                     + "`Verein`=?,"
                     + "`Spiele`=?,"
                     + "`Siege`=?,"
@@ -131,15 +131,14 @@ public class AddTabelleController implements Initializable {
                     + "`Unentschieden`=?,"
                     + "`Tore`=?,"
                     + "`Gegentore`=?,"
-                    + "`Tordifferenz`=?,"
                     + "`Punkte`=?";
 
         }
     }
-    void setTextField(String verein, int spiele, int siege, int niederlagen, int unentschieden, int tore, int gegentore, int punkte) {
+    void setTextField(String verein, String spiele, int siege, int niederlagen, int unentschieden, int tore, int gegentore, int punkte) {
 
         vereinFid.setText(verein);
-        spieleFid.setText(String.valueOf(spiele));
+        spieleFid.setText(spiele);
         siegeFid.setText(String.valueOf(siege));
         niederlagenFid.setText(String.valueOf(niederlagen));
         unentschiedenFid.setText(String.valueOf(unentschieden));
