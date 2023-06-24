@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="697.0" prefWidth="383.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bundesligatabellemysql.AddTabelleController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="652.0" prefWidth="383.0" styleClass="btn" stylesheets="@tabellenvorschau.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bundesligatabellemysql.AddTabelleController">
    <children>
       <VBox prefHeight="93.0" prefWidth="374.0">
          <children>
@@ -150,16 +150,19 @@
             <Font name="Century Gothic" size="15.0" />
          </font>
       </TextField>
-      <HBox prefHeight="100.0" prefWidth="200.0">
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#speichern" prefHeight="64.0" prefWidth="152.0" style="-fx-background-color: #00E676;" text="Speichern">
+            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#speichern" prefHeight="64.0" prefWidth="152.0" style="-fx-background-color: #00E676;" styleClass="btn" stylesheets="@tabellenvorschau.css" text="Speichern">
                <HBox.margin>
-                  <Insets />
+                  <Insets right="10.0" />
                </HBox.margin>
-            </Button>
-            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#leeren" prefHeight="65.0" prefWidth="144.0" style="-fx-background-color: #FFFF00;" text="leeren" textAlignment="CENTER">
-               <HBox.margin>
+               <opaqueInsets>
                   <Insets />
+               </opaqueInsets>
+            </Button>
+            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#leeren" prefHeight="64.0" prefWidth="152.0" style="-fx-background-color: #FFFF00;" styleClass="btn" stylesheets="@tabellenvorschau.css" text="leeren" textAlignment="CENTER">
+               <HBox.margin>
+                  <Insets left="10.0" />
                </HBox.margin>
             </Button>
          </children>
