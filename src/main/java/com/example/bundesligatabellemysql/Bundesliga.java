@@ -4,16 +4,16 @@ public class Bundesliga {
 
     String verein;
     String spiele;
-    int siege;
-    int niederlagen;
-    int unentschieden;
-    int tore;
-    int gegentore;
-    int tordifferenz;
-    int punkte;
+    String siege;
+    String niederlagen;
+    String unentschieden;
+    String tore;
+    String gegentore;
+    String tordifferenz;
+    String punkte;
 
 
-    public Bundesliga(String verein, String spiele, int siege, int niederlagen, int unentschieden, int tore, int gegentore, int tordifferenz, int punkte) {
+    public Bundesliga(String verein, String spiele, String siege, String niederlagen, String unentschieden, String tore, String gegentore, String tordifferenz, String punkte) {
         this.verein = verein;
         this.spiele = spiele;
         this.siege = siege;
@@ -41,59 +41,59 @@ public class Bundesliga {
         this.spiele = spiele;
     }
 
-    public int getSiege() {
+    public String getSiege() {
         return siege;
     }
 
-    public void setSiege(int siege) {
+    public void setSiege(String siege) {
         this.siege = siege;
     }
 
-    public int getNiederlagen() {
+    public String getNiederlagen() {
         return niederlagen;
     }
 
-    public void setNiederlagen(int niederlagen) {
+    public void setNiederlagen(String niederlagen) {
         this.niederlagen = niederlagen;
     }
 
-    public int getUnentschieden() {
+    public String getUnentschieden() {
         return unentschieden;
     }
 
-    public void setUnentschieden(int unentschieden) {
+    public void setUnentschieden(String unentschieden) {
         this.unentschieden = unentschieden;
     }
 
-    public int getTore() {
+    public String getTore() {
         return tore;
     }
 
-    public void setTore(int tore) {
+    public void setTore(String tore) {
         this.tore = tore;
     }
 
-    public int getGegentore() {
+    public String getGegentore() {
         return gegentore;
     }
 
-    public void setGegentore(int gegentore) {
+    public void setGegentore(String gegentore) {
         this.gegentore = gegentore;
     }
 
-    public int getTordifferenz() {
+    public String getTordifferenz() {
         return tordifferenz;
     }
 
-    public void setTordifferenz(int tordifferenz) {
+    public void setTordifferenz(String tordifferenz) {
         this.tordifferenz = tordifferenz;
     }
 
-    public int getPunkte() {
+    public String getPunkte() {
         return punkte;
     }
 
-    public void setPunkte(int punkte) {
+    public void setPunkte(String punkte) {
         this.punkte = punkte;
     }
 }

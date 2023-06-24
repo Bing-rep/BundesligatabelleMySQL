@@ -90,13 +90,13 @@ public class BundesligatabelleController implements Initializable {
                 BundesligaListe.add(new Bundesliga(
                         resultSet.getString("Verein"),
                         resultSet.getString("Spiele"),
-                        resultSet.getInt("Siege"),
-                        resultSet.getInt("Niederlagen"),
-                        resultSet.getInt("Unentschieden"),
-                        resultSet.getInt("Tore"),
-                        resultSet.getInt("Gegentore"),
-                        resultSet.getInt("Tordifferenz"),
-                        resultSet.getInt("Punkte")));
+                        resultSet.getString("Siege"),
+                        resultSet.getString("Niederlagen"),
+                        resultSet.getString("Unentschieden"),
+                        resultSet.getString("Tore"),
+                        resultSet.getString("Gegentore"),
+                        resultSet.getString("Tordifferenz"),
+                        resultSet.getString("Punkte")));
                 bundesligaTabelle.setItems(BundesligaListe);
             }
 

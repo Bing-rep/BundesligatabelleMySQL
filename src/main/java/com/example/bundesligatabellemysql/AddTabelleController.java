@@ -15,32 +15,35 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.scene.control.TextField;
+
 
 public class AddTabelleController implements Initializable {
 
-    @FXML
-    private JFXTextField gegentoreFid;
 
     @FXML
-    private JFXTextField niederlagenFid;
+    private TextField gegentoreFid;
 
     @FXML
-    private JFXTextField punkteFid;
+    private TextField niederlagenFid;
 
     @FXML
-    private JFXTextField siegeFid;
+    private TextField punkteFid;
 
     @FXML
-    private JFXTextField spieleFid;
+    private TextField siegeFid;
 
     @FXML
-    private JFXTextField toreFid;
+    private TextField spieleFid;
 
     @FXML
-    private JFXTextField unentschiedenFid;
+    private TextField toreFid;
 
     @FXML
-    private JFXTextField vereinFid;
+    private TextField unentschiedenFid;
+
+    @FXML
+    private TextField vereinFid;
 
     String query = null;
     Connection connection = null;
@@ -102,14 +105,14 @@ public class AddTabelleController implements Initializable {
 
         try {
             preparedStatement = connection.prepareStatement((query));
-            preparedStatement.setString(1, vereinFid.getText());
-            preparedStatement.setString(1, spieleFid.getText());
-            preparedStatement.setInt(3, Integer.parseInt(siegeFid.getText()));
-            preparedStatement.setInt(4, Integer.parseInt(niederlagenFid.getText()));
-            preparedStatement.setInt(5, Integer.parseInt(unentschiedenFid.getText()));
-            preparedStatement.setInt(6, Integer.parseInt(toreFid.getText()));
-            preparedStatement.setInt(7, Integer.parseInt(gegentoreFid.getText()));
-            preparedStatement.setInt(8, Integer.parseInt(punkteFid.getText()));
+            preparedStatement.setString(1,vereinFid.getText());
+            preparedStatement.setString(2,spieleFid.getText());
+            preparedStatement.setString(3,siegeFid.getText());
+            preparedStatement.setString(4,niederlagenFid.getText());
+            preparedStatement.setString(5,unentschiedenFid.getText());
+            preparedStatement.setString(6,toreFid.getText());
+            preparedStatement.setString(7,gegentoreFid.getText());
+            preparedStatement.setString(8,punkteFid.getText());
 
         } catch (SQLException exception) {
             Logger.getLogger(AddTabelleController.class.getName()).log(Level.SEVERE, null, exception);
@@ -135,16 +138,16 @@ public class AddTabelleController implements Initializable {
 
         }
     }
-    void setTextField(String verein, String spiele, int siege, int niederlagen, int unentschieden, int tore, int gegentore, int punkte) {
+    void setTextField(String verein, String spiele, String siege, String niederlagen, String unentschieden, String tore, String gegentore, String punkte) {
 
         vereinFid.setText(verein);
         spieleFid.setText(spiele);
-        siegeFid.setText(String.valueOf(siege));
-        niederlagenFid.setText(String.valueOf(niederlagen));
-        unentschiedenFid.setText(String.valueOf(unentschieden));
-        toreFid.setText(String.valueOf(tore));
-        gegentoreFid.setText(String.valueOf(gegentore));
-        punkteFid.setText(String.valueOf(punkte));
+        siegeFid.setText(siege);
+        niederlagenFid.setText(niederlagen);
+        unentschiedenFid.setText(unentschieden);
+        toreFid.setText(tore);
+        gegentoreFid.setText(gegentore);
+        punkteFid.setText(punkte);
 
     }
 
