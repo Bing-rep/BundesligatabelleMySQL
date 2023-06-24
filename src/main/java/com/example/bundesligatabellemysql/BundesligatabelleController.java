@@ -62,6 +62,10 @@ public class BundesligatabelleController implements Initializable {
 
     @FXML
     private TableColumn<Bundesliga, String> vereinSpalte;
+    @FXML
+    private TableColumn<Bundesliga, String> tordifferenzSpalte;
+    @FXML
+    private TableColumn<Bundesliga, String> punkteSpalte;
 
     String query = null;
     Connection connection = null;
@@ -142,6 +146,9 @@ public class BundesligatabelleController implements Initializable {
         unentschiedenSpalte.setCellValueFactory(new PropertyValueFactory<>("unentschieden"));
         toreSpalte.setCellValueFactory(new PropertyValueFactory<>("tore"));
         gegentoreSpalte.setCellValueFactory(new PropertyValueFactory<>("gegentore"));
+        tordifferenzSpalte.setCellValueFactory(new PropertyValueFactory<>("tordifferenz"));
+        punkteSpalte.setCellValueFactory(new PropertyValueFactory<>("punkte"));
+
 
         Callback<TableColumn<Bundesliga, String>,TableCell<Bundesliga, String>> cellFactory = (TableColumn<Bundesliga, String> param) -> {
             // erstellt zeilen mit buttons

@@ -82,6 +82,6 @@ public class Bundesliga {
     }
 
     public Integer getPunkte() {
-        return siege*3+unentschieden*1;
+        return siege*3+unentschieden;
     }
 }
