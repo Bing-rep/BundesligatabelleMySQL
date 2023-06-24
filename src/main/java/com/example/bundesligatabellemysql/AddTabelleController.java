@@ -28,9 +28,6 @@ public class AddTabelleController implements Initializable {
     private TextField niederlagenFid;
 
     @FXML
-    private TextField punkteFid;
-
-    @FXML
     private TextField siegeFid;
 
     @FXML
@@ -72,9 +69,8 @@ public class AddTabelleController implements Initializable {
         String Unentschieden = unentschiedenFid.getText();
         String Tore = toreFid.getText();
         String Gegentore = gegentoreFid.getText();
-        String Punkte = punkteFid.getText();
 
-        if (Verein.isEmpty() | Spiele.isEmpty()| Siege.isEmpty()| Niederlagen.isEmpty()| Unentschieden.isEmpty()| Tore.isEmpty()| Gegentore.isEmpty()| Punkte.isEmpty())
+        if (Verein.isEmpty() || Spiele.isEmpty() || Siege.isEmpty()|| Niederlagen.isEmpty()|| Unentschieden.isEmpty()|| Tore.isEmpty()|| Gegentore.isEmpty())
         {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(null);
@@ -98,7 +94,6 @@ public class AddTabelleController implements Initializable {
         unentschiedenFid.setText(null);
         toreFid.setText(null);
         gegentoreFid.setText(null);
-        punkteFid.setText(null);
 
     }
     private void insert() {
@@ -112,8 +107,8 @@ public class AddTabelleController implements Initializable {
             preparedStatement.setString(5,unentschiedenFid.getText());
             preparedStatement.setString(6,toreFid.getText());
             preparedStatement.setString(7,gegentoreFid.getText());
-            preparedStatement.setString(8,punkteFid.getText());
 
+            preparedStatement.executeUpdate();
         } catch (SQLException exception) {
             Logger.getLogger(AddTabelleController.class.getName()).log(Level.SEVERE, null, exception);
         }
@@ -122,10 +117,8 @@ public class AddTabelleController implements Initializable {
 
     private void getQuery() {
         if (aktualisieren == false) {
-
-            query = "INSERT INTO tabelle (Verein, Spiele, Siege, Niederlagen, Unentschieden, Tore, Gegentore, Punkte) VALUES (?,?,?,?,?,?,?,?)";
-
-        }else{
+            query = "INSERT INTO tabelle (Verein, Spiele, Siege, Niederlagen, Unentschieden, Tore, Gegentore) VALUES (?,?,?,?,?,?,?)";
+        } else {
             query = "UPDATE tabelle SET "
                     + "`Verein`=?,"
                     + "`Spiele`=?,"
@@ -133,21 +126,19 @@ public class AddTabelleController implements Initializable {
                     + "`Niederlagen`=?,"
                     + "`Unentschieden`=?,"
                     + "`Tore`=?,"
-                    + "`Gegentore`=?,"
-                    + "`Punkte`=?";
-
+                    + "`Gegentore`=?";
         }
     }
-    void setTextField(String verein, String spiele, String siege, String niederlagen, String unentschieden, String tore, String gegentore, String punkte) {
+
+    void setTextField(String verein, int spiele, int siege, int niederlagen, int unentschieden, int tore, int gegentore) {
 
         vereinFid.setText(verein);
-        spieleFid.setText(spiele);
-        siegeFid.setText(siege);
-        niederlagenFid.setText(niederlagen);
-        unentschiedenFid.setText(unentschieden);
-        toreFid.setText(tore);
-        gegentoreFid.setText(gegentore);
-        punkteFid.setText(punkte);
+        spieleFid.setText(String.valueOf(spiele));
+        siegeFid.setText(String.valueOf(siege));
+        niederlagenFid.setText(String.valueOf(niederlagen));
+        unentschiedenFid.setText(String.valueOf(unentschieden));
+        toreFid.setText(String.valueOf(tore));
+        gegentoreFid.setText(String.valueOf(gegentore));
 
     }
 

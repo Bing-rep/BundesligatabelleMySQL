@@ -3,17 +3,15 @@ package com.example.bundesligatabellemysql;
 public class Bundesliga {
 
     String verein;
-    String spiele;
-    String siege;
-    String niederlagen;
-    String unentschieden;
-    String tore;
-    String gegentore;
-    String tordifferenz;
-    String punkte;
+    int spiele;
+    int siege;
+    int niederlagen;
+    int unentschieden;
+    int tore;
+    int gegentore;
 
 
-    public Bundesliga(String verein, String spiele, String siege, String niederlagen, String unentschieden, String tore, String gegentore, String tordifferenz, String punkte) {
+    public Bundesliga(String verein, int spiele, int siege, int niederlagen, int unentschieden, int tore, int gegentore) {
         this.verein = verein;
         this.spiele = spiele;
         this.siege = siege;
@@ -21,8 +19,6 @@ public class Bundesliga {
         this.unentschieden = unentschieden;
         this.tore = tore;
         this.gegentore = gegentore;
-        this.tordifferenz = tordifferenz;
-        this.punkte = punkte;
     }
 
     public String getVerein() {
@@ -33,67 +29,59 @@ public class Bundesliga {
         this.verein = verein;
     }
 
-    public String getSpiele() {
+    public Integer getSpiele() {
         return spiele;
     }
 
-    public void setSpiele(String spiele) {
+    public void setSpiele(Integer spiele) {
         this.spiele = spiele;
     }
 
-    public String getSiege() {
+    public Integer getSiege() {
         return siege;
     }
 
-    public void setSiege(String siege) {
+    public void setSiege(Integer siege) {
         this.siege = siege;
     }
 
-    public String getNiederlagen() {
+    public Integer getNiederlagen() {
         return niederlagen;
     }
 
-    public void setNiederlagen(String niederlagen) {
+    public void setNiederlagen(Integer niederlagen) {
         this.niederlagen = niederlagen;
     }
 
-    public String getUnentschieden() {
+    public Integer getUnentschieden() {
         return unentschieden;
     }
 
-    public void setUnentschieden(String unentschieden) {
+    public void setUnentschieden(Integer unentschieden) {
         this.unentschieden = unentschieden;
     }
 
-    public String getTore() {
+    public Integer getTore() {
         return tore;
     }
 
-    public void setTore(String tore) {
+    public void setTore(Integer tore) {
         this.tore = tore;
     }
 
-    public String getGegentore() {
+    public Integer getGegentore() {
         return gegentore;
     }
 
-    public void setGegentore(String gegentore) {
+    public void setGegentore(Integer gegentore) {
         this.gegentore = gegentore;
     }
 
-    public String getTordifferenz() {
-        return tordifferenz;
+    public Integer getTordifferenz() {
+        return tore-gegentore;
     }
 
-    public void setTordifferenz(String tordifferenz) {
-        this.tordifferenz = tordifferenz;
-    }
-
-    public String getPunkte() {
-        return punkte;
-    }
-
-    public void setPunkte(String punkte) {
-        this.punkte = punkte;
+    public Integer getPunkte() {
+        return siege*3+unentschieden*1;
     }
 }

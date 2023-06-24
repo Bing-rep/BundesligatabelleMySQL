@@ -47,16 +47,10 @@ public class BundesligatabelleController implements Initializable {
     private TableColumn<Bundesliga, String> niederlagenSpalte;
 
     @FXML
-    private TableColumn<Bundesliga, String> punkteSpalte;
-
-    @FXML
     private TableColumn<Bundesliga, String> siegeSpalte;
 
     @FXML
     private TableColumn<Bundesliga, String> spieleSpalte;
-
-    @FXML
-    private TableColumn<Bundesliga, String> tordifferenzSpalte;
 
     @FXML
     private TableColumn<Bundesliga, String> toreSpalte;
@@ -89,15 +83,12 @@ public class BundesligatabelleController implements Initializable {
             while (resultSet.next()){
                 BundesligaListe.add(new Bundesliga(
                         resultSet.getString("Verein"),
-                        resultSet.getString("Spiele"),
-                        resultSet.getString("Siege"),
-                        resultSet.getString("Niederlagen"),
-                        resultSet.getString("Unentschieden"),
-                        resultSet.getString("Tore"),
-                        resultSet.getString("Gegentore"),
-                        resultSet.getString("Tordifferenz"),
-                        resultSet.getString("Punkte")));
-                bundesligaTabelle.setItems(BundesligaListe);
+                        resultSet.getInt("Spiele"),
+                        resultSet.getInt("Siege"),
+                        resultSet.getInt("Niederlagen"),
+                        resultSet.getInt("Unentschieden"),
+                        resultSet.getInt("Tore"),
+                        resultSet.getInt("Gegentore")));
             }
 
 
@@ -151,8 +142,6 @@ public class BundesligatabelleController implements Initializable {
         unentschiedenSpalte.setCellValueFactory(new PropertyValueFactory<>("unentschieden"));
         toreSpalte.setCellValueFactory(new PropertyValueFactory<>("tore"));
         gegentoreSpalte.setCellValueFactory(new PropertyValueFactory<>("gegentore"));
-        tordifferenzSpalte.setCellValueFactory(new PropertyValueFactory<>("tordifferenz"));
-        punkteSpalte.setCellValueFactory(new PropertyValueFactory<>("punkte"));
 
         Callback<TableColumn<Bundesliga, String>,TableCell<Bundesliga, String>> cellFactory = (TableColumn<Bundesliga, String> param) -> {
             // erstellt zeilen mit buttons
@@ -182,15 +171,16 @@ public class BundesligatabelleController implements Initializable {
                         löschenIcon.setOnMouseClicked((MouseEvent event) -> {
                             try {
                                 bundesliga = bundesligaTabelle.getSelectionModel().getSelectedItem();
-                                query = "DELETE FROM tabelle WHERE Verein = "+bundesliga.getVerein();
-                                connection = DbVerbindung.getConnect();
+                                query = "DELETE FROM tabelle WHERE Verein = ?";
                                 preparedStatement = connection.prepareStatement(query);
-                                preparedStatement.execute();
+                                preparedStatement.setString(1, bundesliga.getVerein());
+                                preparedStatement.executeUpdate();
                                 aktualisierTabelle();
                             } catch (SQLException exception) {
                                 Logger.getLogger(BundesligatabelleController.class.getName()).log(Level.SEVERE, null, exception);
                             }
                         });
+
                         bearbeitenIcon.setOnMouseClicked((MouseEvent event) -> {
                             bundesliga = bundesligaTabelle.getSelectionModel().getSelectedItem();
                             FXMLLoader loader = new FXMLLoader();
@@ -203,7 +193,7 @@ public class BundesligatabelleController implements Initializable {
 
                             AddTabelleController addTabelleController = loader.getController();
                             addTabelleController.setUpdate(true);
-                            addTabelleController.setTextField(bundesliga.getVerein(), bundesliga.getSpiele(), bundesliga.getSiege(), bundesliga.getNiederlagen(),bundesliga.getUnentschieden(),bundesliga.getTore(),bundesliga.getGegentore(),bundesliga.getPunkte());
+                            addTabelleController.setTextField(bundesliga.getVerein(), bundesliga.getSpiele(), bundesliga.getSiege(), bundesliga.getNiederlagen(),bundesliga.getUnentschieden(),bundesliga.getTore(),bundesliga.getGegentore());
                             Parent parent = loader.getRoot();
                             Stage stage = new Stage();
                             stage.setScene(new Scene(parent));
