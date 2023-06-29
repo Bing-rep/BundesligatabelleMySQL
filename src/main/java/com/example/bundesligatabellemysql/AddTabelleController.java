@@ -115,6 +115,7 @@ public class AddTabelleController implements Initializable {
             preparedStatement.setString(5, unentschiedenFid.getText());
             preparedStatement.setString(6, toreFid.getText());
             preparedStatement.setString(7, gegentoreFid.getText());
+            preparedStatement.setString(8, vereinFid.getText());
             preparedStatement.executeUpdate();
         } catch (SQLException exception) {
             Logger.getLogger(AddTabelleController.class.getName()).log(Level.SEVERE, null, exception);
@@ -133,7 +134,8 @@ public class AddTabelleController implements Initializable {
                     + "`Niederlagen`=?,"
                     + "`Unentschieden`=?,"
                     + "`Tore`=?,"
-                    + "`Gegentore`=?";
+                    + "`Gegentore`=?"
+                    + "WHERE Verein = ?";
         }
     }
 

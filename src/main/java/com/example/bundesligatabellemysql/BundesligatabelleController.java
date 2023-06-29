@@ -153,6 +153,7 @@ public class BundesligatabelleController implements Initializable {
         Callback<TableColumn<Bundesliga, String>,TableCell<Bundesliga, String>> cellFactory = (TableColumn<Bundesliga, String> param) -> {
             // erstellt zeilen mit buttons
             final TableCell<Bundesliga, String> cell = new TableCell<Bundesliga, String>() {
+
                 @Override
                 public  void updateItem(String item, boolean empty) {
                     super.updateItem(item, empty);

@@ -27,7 +27,7 @@
       <Pane layoutY="55.0" prefHeight="5.0" prefWidth="860.0" style="-fx-background-color: #131414;" />
       <Text layoutX="14.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bundesligatabelle">
          <font>
-            <Font name="System Bold Italic" size="30.0" />
+            <Font name="System Bold" size="30.0" />
          </font>
       </Text>
       <Button layoutX="747.0" layoutY="127.0" mnemonicParsing="false" onMouseClicked="#getHinzufügenAnsicht" prefHeight="30.0" prefWidth="91.0" style="-fx-background-color: #006534;" styleClass="btn" stylesheets="@tabellenvorschau.css" text="Hinzufügen" />
