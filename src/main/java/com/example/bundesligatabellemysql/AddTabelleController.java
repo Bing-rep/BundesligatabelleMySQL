@@ -107,15 +107,17 @@ public class AddTabelleController implements Initializable {
     private void insert() {
         // Methode zum Einfügen der Daten in die Datenbanktabelle
         try {
-            preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setString(1, vereinFid.getText());
-            preparedStatement.setString(2, spieleFid.getText());
-            preparedStatement.setString(3, siegeFid.getText());
-            preparedStatement.setString(4, niederlagenFid.getText());
-            preparedStatement.setString(5, unentschiedenFid.getText());
-            preparedStatement.setString(6, toreFid.getText());
-            preparedStatement.setString(7, gegentoreFid.getText());
-            preparedStatement.setString(8, vereinFid.getText());
+            preparedStatement = connection.prepareStatement((query));
+            preparedStatement.setString(1,vereinFid.getText());
+            preparedStatement.setString(2,spieleFid.getText());
+            preparedStatement.setString(3,siegeFid.getText());
+            preparedStatement.setString(4,niederlagenFid.getText());
+            preparedStatement.setString(5,unentschiedenFid.getText());
+            preparedStatement.setString(6,toreFid.getText());
+            preparedStatement.setString(7,gegentoreFid.getText());
+            if (aktualisieren)
+                preparedStatement.setString(8, vereinFid.getText());
+
             preparedStatement.executeUpdate();
         } catch (SQLException exception) {
             Logger.getLogger(AddTabelleController.class.getName()).log(Level.SEVERE, null, exception);
